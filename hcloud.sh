@@ -21,11 +21,11 @@ tee <<-EOF
 * Not Ready? Just type something & Press [ENTER]
 
 EOF
-hcloud context create plexguide
+hcloud context create pgblitz
 
   test=$(hcloud server list)
   if [ "$test" == "" ]; then
-    hcloud context delete plexguide
+    hcloud context delete pgblitz
   exit
   fi
 
@@ -94,7 +94,7 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 EOF
-  hcloud server create --name $name --type cx11 --image $os > /opt/appdata/plexguide/server.info
+  hcloud server create --name $name --type cx11 --image $os > /opt/appdata/pgblitz/server.info
 
 tee <<-EOF
 
@@ -103,17 +103,17 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 EOF
-cat /opt/appdata/plexguide/server.info
+cat /opt/appdata/pgblitz/server.info
 
 # Creates Log
-touch /opt/appdata/plexguide/server.store
-cat /opt/appdata/plexguide/server.info >> /opt/appdata/plexguide/server.store
-echo "Server Name: $name" >> /opt/appdata/plexguide/server.store
-echo "" >> /opt/appdata/plexguide/server.store
+touch /opt/appdata/pgblitz/server.store
+cat /opt/appdata/pgblitz/server.info >> /opt/appdata/pgblitz/server.store
+echo "Server Name: $name" >> /opt/appdata/pgblitz/server.store
+echo "" >> /opt/appdata/pgblitz/server.store
 
 # Variable Info
-serverip=$(cat /opt/appdata/plexguide/server.info | tail -n +3 | head -n 1 | cut -d " " -f2-)
-initialpw=$(cat /opt/appdata/plexguide/server.info | tail -n +4 | cut -d " " -f3-)
+serverip=$(cat /opt/appdata/pgblitz/server.info | tail -n +3 | head -n 1 | cut -d " " -f2-)
+initialpw=$(cat /opt/appdata/pgblitz/server.info | tail -n +4 | cut -d " " -f3-)
 
 tee <<-EOF
 
@@ -219,8 +219,8 @@ tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 
-touch /opt/appdata/plexguide/server.store
-tac -r /opt/appdata/plexguide/server.store
+touch /opt/appdata/pgblitz/server.store
+tac -r /opt/appdata/pgblitz/server.store
 echo "" & echo ""
 read -p 'Press [ENTER] to Continue! ' corn < /dev/tty
 
