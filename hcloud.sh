@@ -43,7 +43,7 @@ tee <<-EOF
 2 - Destory a Server
 A - List Server Info
 B - Display Inital Server Passwords
-Z - EXIT
+Z - Exit
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
@@ -117,7 +117,7 @@ initialpw=$(cat /opt/appdata/plexguide/server.info | tail -n +4 | cut -d " " -f3
 
 tee <<-EOF
 
-⚠️  To Reach Your Server >>> EXIT PG >>> TYPE: pg-$name ⚠️
+⚠️  To Reach Your Server >>> Exit PG >>> TYPE: pg-$name ⚠️
 
 ✅️ [IMPORTANT NOTE]
 
