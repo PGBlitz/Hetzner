@@ -41,11 +41,14 @@ tee <<-EOF
 
 [1] Deploy a New Server
 [2] Destory a Server
-A - List Server Info
-B - Display Inital Server Passwords
-Z - Exit
+
+[A] List Server Info
+[B] Display Inital Server Passwords
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[Z] Exit
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 EOF
 read -p 'Type a Number | Press [ENTER]: ' typed </dev/tty
 
@@ -70,8 +73,9 @@ EOF
 [4] Centos 7
 [5] Fendora 28
 [6] Fendora 27
-Z - Exit
 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[Z] Exit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 EOF
@@ -160,6 +164,7 @@ elif [ "$typed" == "A" ] || [ "$typed" == "a" ]; then
 
 Server Name
 ━━━━━━━━━━━
+
 EOF
   hcloud server list | tail -n +2 | cut -d " " -f2- | cut -d " " -f2- | cut -d " " -f2-
   echo
@@ -177,6 +182,7 @@ elif [ "$typed" == "2" ]; then
 
 Server Name
 ━━━━━━━━━━━
+
 EOF
   hcloud server list | tail -n +2 | cut -d " " -f2- | cut -d " " -f2- | cut -d " " -f2-
   echo
@@ -224,6 +230,7 @@ elif [ "$typed" == "B" ] || [ "$typed" == "b" ]; then
 
 ⚠️  Useful if NEVER logged in! List created by this Server (new > old)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 EOF
 
   touch /opt/appdata/plexguide/server.store
